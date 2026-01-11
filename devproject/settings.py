@@ -42,7 +42,6 @@ INSTALLED_APPS = [ "rest_framework",
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "debug_toolbar", 
     "testApp",
 ]
 
@@ -112,7 +111,11 @@ INTERNAL_IPS = [
 "127.0.0.1", 
 ]
 
+if DEBUG:
+    INSTALLED_APPS += ['debug_toolbar']
 
+if DEBUG:
+    MIDDLEWARE += ['debug_toolbar.middleware.DebugToolbarMiddleware']
 
 
 
