@@ -1,0 +1,12 @@
+ <h2>ログイン</h2> 
+<form method="post"> 
+{% csrf_token %} 
+{{ form.as_p }} 
+<button type="submit">ログイン</button> 
+</form>
+{% if user.is_authenticated %} 
+<p>こんにちは、{{ user.username }} さん</p> 
+<a href="{% url 'logout' %}">ログアウト</a> 
+{% else %} 
+<a href="{% url 'login' %}">ログイン</a> 
+{% endif %}
